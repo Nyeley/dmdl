@@ -1,7 +1,7 @@
 ---
 title: "dmdl"
 author: "Staenz Phoebe, Gaduel Tetteng"
-date: "r `date()`"
+date: "`r date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Package 'dmdl'}
@@ -176,7 +176,7 @@ Description: Takes the positions of assets or liabilities, computes their porpor
 
   The first part of the analysis is determining the duration of the assets and the liabilities. The "duration" function implements the formulae depicted below. The formulae are summations of the proportion and duration of assets or liabilities in the asset or liability portfolio at market values. The result is a weighted duration of assets or liabilities.
 
-![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/dmdl/vignettes/duration_aa.png)
+![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/vignettes/duration_aa.png)
 
   Before executing the summation, the function calculates the propotions (weights) of each element in the asset or liability vector. The proportions are calculated by dividing the individual asset or liability value by the total asset or liability value. Each element from the resulting proportion vector is multipled by the duration element in the same position. The result is a single number, namely the weighted duration of assets or liabilities. 
 
@@ -234,7 +234,7 @@ Description: Takes the positions of assets or liabilities together with the resp
 
   The duration approximation from the previous section is used to determine the effect the change in interest rate has on the individual assets or liabilities and ultimately on the total asset or liabilities position of the financial intermediary. The functions are identical for the assets and liabilities. Assets will use the asset vector, asset duration vector, asset yield vector, and the specific predicted change in interest rate specific to assets. The liabilities will use the respective vectors for their calculation.
 
-![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/dmdl/vignettes/change_assets.png)
+![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/vignettes/change_assets.png)
 
   The "change" function applies the formula depicted above. The number of elements used in the computation is determined by the length(x), the number of values in the value vector. First, the shock in the level of the interest rate is determined by dividing the potential change in interest rate by one plus the existing yield found in the yield vector. The shock is computed element by element, which implies that each asset or liability from the value vector experiences a different interest rate shock. The function proceeds to compute the effect the interest rate change has on the individual asset's or liabilities' value, then aggregates the individual changes. 
 
@@ -257,7 +257,7 @@ change <- function(x, y, z, r){
 change(Assets$Asset, Assets$Duration, Assets$Yield, 0.0015)
 ```
 
-![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/dmdl/vignettes/change_liabilities.png)
+![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/vignettes/change_liabilities.png)
 
  The execution for the "change" function using liabilities values is identical to the execution of the "change" function for assets.
 
@@ -306,7 +306,7 @@ Description: Takes the aggregare changes in assets and liabilities, subtracting 
 
   The formulae depicted below have been used seperately in the previous sections, computing either duration of the assets and liabilities or the change in assets and liabilities, when experiencing a shock in the level of interest rate. In this section the individual formulae come together to compute the effect the change in interest rate for assets and liabilities has on the equity position of the financial intermediary.
 
-![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/dmdl/vignettes/simple_E.png)
+![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/vignettes/simple_E.png)
 
   As with the formulae from above, the function below includes elements of functions from the previous sections' functions. The "differenceE" function is constructed, such that the input parameters are split into assets and liabilities. The inputs assosciated with the assets (asset value, asset duration, asset yield, change in interest rate for assets) come first and are followed by the inputs assosciated with the liabilities (liability value, liability duration, liability yield, change in interest rate for liabilities). Similarily, the functions coherent construction is: asset computation first and liabilities computation second.
 
@@ -369,7 +369,7 @@ Description: Takes the duration of assets and the scaled duration of liabilities
 
   In the formula depicted below are the duration of assets and liabilities, as well as the factor "k". "k" represents the market measure of risk, which in turn is the ratio between asets and liabilities.
 
-![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/dmdl/vignettes/ladg.png)
+![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/vignettes/ladg.png)
 
   The function below is constructed in such a manner that elements of functions from the previous sections are being reused and the user will not need to save previously obtained results. Recognizeable are the proportion vectors and its summation from the duration section. The additional computations this function under takes are in the last two lines. "k" is the ratio between asets and liabilities. The penultimate line executes the summation of liability value and divides it by the summation of the asset values. The last line is the insertion of the levergage adjusted duration gap formula from the image above. In the lines leading up to "k", the function computes the duration of assets and liabilities. The command in the last line tells the function to combine the duration results with the market measure risk and return the LADG.
 
@@ -432,7 +432,7 @@ Description: Takes the duration of assets and the duration of liabilities,
 
   The LADG is used to calculate the change in equity, when the expected interest rate shock for assets and liabilities is the same (spread = 0). The formula from the aggregate change in equity simplifies, due to the interest rate shock being the same for both assets and liabilites. Instead of calculating the difference between change in assets and the change in liabilities, the individual changes are replaced wtih the negative LADG.
 
-![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/dmdl/vignettes/delta_e.png)
+![](/Users/Phoebe/Desktop/Programming II/Package Project/dmdl/vignettes/delta_e.png)
 
    The "deltaE" function includes familiar computations before applying the formula depicted above. The lines, leading up to the formula depicted above in the last line, are the computations done for the duration of assets and liabilites. Once the durations are computed the function computes the market measure of risk "k" and the LADG. The penultimate and ultimate line of the function are new insertions. Penultimately, the function computes the total asset value of the financial intermediary and inserts it into the formula in the last line of code, returning the change in equity due to a predicted change in interest rate.
 
