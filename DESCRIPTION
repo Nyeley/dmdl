@@ -9,8 +9,6 @@ Description: The package aids in the measurement and observation of interest rat
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Suggests: 
-    knitr,
-    rmarkdown
+Suggests: rmarkdown, knitr
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
