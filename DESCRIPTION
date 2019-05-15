@@ -1,6 +1,6 @@
 Package: dmdl
 Title: Duration gap analysis
-Version: 0.0.0.9000
+Version: 0.1.8
 Author: Phoebe Staenz <phoebe.staenz@usi.ch>,
         Tetteng Gaduel <Tettet.gaduel@usi.ch>
 Maintainer: Phoebe Staenz <phoebe.staenz@usi.ch>,
