@@ -1,4 +1,4 @@
-#' A package that contains functions from the duration model
+#' Duration model
 #'
 #' This package is a tool for economists to measure and observe the interest rate risk on the net worth of a financial intermediary.
 #' The dmdl package provides five functions to compute the most important components in the duration model:
@@ -6,31 +6,95 @@
 #' duration of assets and/or liabilities, and the leverage adjusted duration gap
 #'
 #' @section Data:
-#' * Assets: Data set containg three numerical columns, value, duration, and yield of consolidated balance sheet assets.
-#'           The data set is  used in the examples provided in the vignette.
+#' * Assets:
+#' Data set containg three numerical columns, value, duration, and yield of consolidated balance sheet assets.
+#' The data set is  used in the examples provided in the vignette.
 #'
-#' * Liabilities: A data set containg three numerical columns from the consolidated balance sheet liabilities values,
-#'                liabilities durations, and liabilities yields.
+#' * Liabilities:
+#' A data set containg three numerical columns from the consolidated balance sheet liabilities values,
+#' liabilities durations, and liabilities yields.
 #'
 #' @section Functions:
-#' * change: Computes the aggregate change in assets or liabilities, due to a respective predicted change in interest rate level
+#' * change:
+#' Computes the aggregate change in assets or liabilities, due to a respective predicted change in interest rate level
 #'
-#'   usage: change(x, y, z, r)
+#' usage:
+#' change(x, y, z, r)
 #'
-#' * deltaE: Computes the change in equity when ineterest rate spread > 0
+#' parameters:
+#' x = Vector containing asset or liabilities positions in asset or liability portfolio
 #'
-#'   usage: deltaE(x, y, z, w, r)
+#' y = Vector containing duration of asset or liabilities in asset or liability portfolio
 #'
-#' * differenceE: Computes the change in equity, subtracting aggr. change of liabilities from aggr. change of assets
+#' z = Vector containing the yield of the asset or liabilities in asset or liability portfolio
 #'
-#'   usage: differenceE(x, y, z, r1, h, i, j, r2)
+#' r = The predicted change in ineterst rate level
 #'
-#' * duration: Computes the duration of assets or liabilities
-#'   usage: duration(x, y)
+#' * deltaE:
+#' Computes the change in equity when ineterest rate spread > 0
 #'
-#' * ladg: Computes the leverage adjusted duration gap
+#' usage:
+#' deltaE(x, y, z, w, r)
 #'
-#'   usage: ladg(x, y, z, w)
+#' parameters:
+#' x = Vector containing asset positions in asset portfolio
+#'
+#' y = Vector containing durations of assets from the asset portfolio
+#'
+#' z = Vector containing liability positions from the liabilities portfolio
+#'
+#' w = Vector containing duration of liabilities from the liabilities portfolio
+#'
+#' r = The predicted change in interest rate level across both assets and liabilities
+#'
+#' * differenceE:
+#' Computes the change in equity, subtracting aggr. change of liabilities from aggr. change of assets
+#'
+#' usage:
+#' differenceE(x, y, z, r1, h, i, j, r2)
+#'
+#' parameters:
+#' x = Vector containing asset positions from asset portfolio
+#'
+#' y = Vector containing duration of assets from the asset portfolio
+#'
+#' z = Vector containing asset yields from the asset portfolio
+#'
+#' r1 = The predicted change in interest rate level for assets
+#'
+#' h = Vector containing values of liabilities from the liabilities portfolio
+#'
+#' i = Vector containing duration of liabilities from the liabilities portfolio
+#'
+#' j = Vector containing the yields of liabilities from the liabilities portfolio
+#'
+#' r2 = The predicted change in interest rate level for liabilities
+#'
+#' * duration:
+#' Computes the duration of assets or liabilities
+#'
+#' usage:
+#' duration(x, y)
+#'
+#' parameters:
+#' x = Vector containing asset or liabilities positions in liability or asset portfolio
+#'
+#' y = Vector containing duration of asset or liabilities in liability or asset portfolio
+#'
+#' * ladg:
+#' Computes the leverage adjusted duration gap
+#'
+#'  usage:
+#'  ladg(x, y, z, w)
+#'
+#' parameters:
+#' x = Vector containing asset positions from the asset portfolio
+#'
+#' y = Vector containing duration of assets from the asset portfolio
+#'
+#' z = Vector containing liability positions from the liabilities portfolio
+#'
+#' w = Vector containing duration of liabilities from the liabilities portfolio
 #'
 #' @section Vignettes
 #' URL: http://rpubs.com/phoebe_staenz/dmdl_vignette
