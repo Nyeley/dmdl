@@ -32,7 +32,8 @@
 #'
 #'   usage: ladg(x, y, z, w)
 #'
-#'
+#' @section Vignettes
+#' URL: http://rpubs.com/phoebe_staenz/dmdl_vignette
 #'
 #' @examples
 #' change(c(150,350,600), c(0.25, 2.5, 0.75), c(0.01, 0.035, 0.65), 0.0015)
