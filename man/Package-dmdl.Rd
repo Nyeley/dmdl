@@ -3,8 +3,9 @@
 \docType{Package}
 \name{Package-dmdl}
 \alias{Package-dmdl}
-\title{A package that aids in the measurement and observation of interest rate risk on the net worth of a financial intermediary}
+\title{A package that contains functions from the duration model}
 \description{
+This package is a tool for economists to measure and observe the interest rate risk on the net worth of a financial intermediary.
 The dmdl package provides five functions to compute the most important components in the duration model:
 change in assets and/or liabilities position, overall change in equity position,
 duration of assets and/or liabilities, and the leverage adjusted duration gap
@@ -12,19 +13,19 @@ duration of assets and/or liabilities, and the leverage adjusted duration gap
 \section{Data}{
 
 * Assets: Data set containg three numerical columns, value, duration, and yield of consolidated balance sheet assets.
-The data set is  used in the examples provided in the vignette.
+          The data set is  used in the examples provided in the vignette.
 
 * Liabilities: A data set containg three numerical columns from the consolidated balance sheet liabilities values,
-liabilities durations, and liabilities yields.
+               liabilities durations, and liabilities yields.
 }
 
 \section{Functions}{
 
-* change: Computes the aggregate change in assets or liabilities, due to a respective predicted change in interest rate level.
+* change: Computes the aggregate change in assets or liabilities, due to a respective predicted change in interest rate level
 
-* deltaE: Computes the change in equity
+* deltaE: Computes the change in equity when ineterest rate spread > 0
 
-* differenceE: Computes the change in equity
+* differenceE: Computes the change in equity, subtracting aggr. change of liabilities from aggr. change of assets
 
 * duration: Computes the duration of assets or liabilities
 
