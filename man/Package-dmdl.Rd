@@ -22,14 +22,19 @@ duration of assets and/or liabilities, and the leverage adjusted duration gap
 \section{Functions}{
 
 * change: Computes the aggregate change in assets or liabilities, due to a respective predicted change in interest rate level
+  usage: change(x, y, z, r)
 
 * deltaE: Computes the change in equity when ineterest rate spread > 0
+  usage: deltaE(x, y, z, w, r)
 
 * differenceE: Computes the change in equity, subtracting aggr. change of liabilities from aggr. change of assets
+  usage: differenceE(x, y, z, r1, h, i, j, r2)
 
 * duration: Computes the duration of assets or liabilities
+  usage: duration(x, y)
 
 * ladg: Computes the leverage adjusted duration gap
+  usage: ladg(x, y, z, w)
 }
 
 \examples{
