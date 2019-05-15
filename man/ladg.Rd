@@ -23,5 +23,5 @@ Takes the duration of assets and the scaled duration of liabilities,
     subtracting the scaled duration of liabilities from the duration of assets
 }
 \examples{
-change(c(150,350,600), c(0.25, 2.5, 0.75), c(200, 375, 120), c(0.1, 2, 0.75))
+ladg(c(150,350,600), c(0.25, 2.5, 0.75), c(200, 375, 120), c(0.1, 2, 0.75))
 }

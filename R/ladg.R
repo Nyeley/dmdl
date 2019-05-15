@@ -9,7 +9,7 @@
 #' @param w Vector containing duration of liabilities from the liabilities portfolio
 #'
 #' @return leverage adjusted duration gap
-#' @examples change(c(150,350,600), c(0.25, 2.5, 0.75), c(200, 375, 120), c(0.1, 2, 0.75))
+#' @examples ladg(c(150,350,600), c(0.25, 2.5, 0.75), c(200, 375, 120), c(0.1, 2, 0.75))
 #' @export
 
 ladg <- function(x, y, z, w){
